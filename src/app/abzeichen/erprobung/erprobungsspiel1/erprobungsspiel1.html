@@ -1,0 +1,68 @@
+<header>
+  <h1>1.Erprobungsspiel: </h1>
+</header>
+
+@for (frage of fragen(); track $index) {
+  <div class="frage">
+    @if (color) {
+      <p [ngClass]='{"richtig":style[$index], "falsch":!style[$index]}'>{{ $index + 1 }}. {{ frage }}</p>
+    } @else {
+      <p>{{$index + 1 }}. {{ frage }}</p>
+    }
+    <ul>
+      @for (antwort of antworten()[$index]; track $index) {
+        <li>{{antwort}}</li>
+      }
+      <select [(ngModel)]="antwort[$index]">
+        <option>A</option>
+        <option>B</option>
+        <option>C</option>
+      </select>
+      @if(color && !style[$index]){
+        <a> Richtig ist: {{richtig()[$index]}}</a>
+      }
+    </ul>
+  </div>
+}
+
+<div class="frage">
+  @if(color){
+    <p [ngClass]='{"richtig":style2[0], "falsch":!style2[0]}'>9. Wie heißt dein Jugendbetreuer?</p>
+  } @else {
+    <p>9. Wie heißt dein Jugendbetreuer? (Nur Vorname)</p>
+  }
+  <input type="text" [(ngModel)]="textAnt">
+  @if(color && !style2[0]){
+    <a> Richtig ist: Hannes</a>
+  }
+</div>
+<div class="frage">
+  @if(color){
+    <p [ngClass]='{"richtig":style2[1], "falsch":!style2[1]}'>10. Wie heißt dein Jugendbetreuer?</p>
+  } @else {
+    <p>10. Wie heißt der gehilfe deines Jugendbetreuers? (Nur 1, Nur Vorname)</p>
+  }
+  <input type="text" [(ngModel)]="textAnt2">
+  @if(color && !style2[1]){
+    <a> Richtig wäre einer davon: Tobias, Katharina, Anika, Nico</a>
+  }
+</div>
+
+<button (click)="fertig()">Abgeben</button>
+
+<br>
+<br>
+
+<a>Ergebnis: {{ endErg() }}/10 -> ({{ 10 - endErg() }} Fehler) </a>
+<br>
+@if (endErg() < 6 && endErg() != 0) {
+  <a>(Durchgefallen😭)</a>
+} @else if (endErg() >= 6) {
+  <a>(Bestanden👍)</a>
+}
+<br>
+<br>
+
+<button (click)="reset()">Neu Beginnen</button>
+
+<br>

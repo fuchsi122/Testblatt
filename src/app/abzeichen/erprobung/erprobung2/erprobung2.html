@@ -1,0 +1,79 @@
+<header>
+  <h1>2.Erprobung: </h1>
+</header>
+
+@for (frage of fragen(); track $index) {
+  <div class="frage">
+    @if (color) {
+      <p [ngClass]='{"richtig":style[$index], "falsch":!style[$index]}'>{{ $index + 1 }}. {{ frage }}</p>
+    } @else {
+      <p>{{$index + 1 }}. {{ frage }}</p>
+    }
+    <ul>
+      @for (antwort of antworten()[$index]; track $index) {
+        <li>{{antwort}}</li>
+      }
+      <select [(ngModel)]="antwort[$index]">
+        <option>A</option>
+        <option>B</option>
+        <option>C</option>
+      </select>
+      @if(color && !style[$index]){
+        <a> Richtig ist: {{richtig()[$index]}}</a>
+      }
+    </ul>
+  </div>
+}
+
+<div class="frage">
+  @if(color){
+    <p [ngClass]='{"richtig":style2[0], "falsch":!style2[0]}'>16. Welche Kleinlöschgeräte gibt es in deiner Feuerwehr? (Nenne 3, mit Beistrichen trennen)</p>
+  } @else {
+    <p>16. Welche Kleinlöschgeräte gibt es in deiner Feuerwehr? (Nenne 3, mit Beistrichen trennen)</p>
+  }
+  <input type="text" [(ngModel)]="textAnt">
+  @if(color && !style2[0]){
+    <a> Richtig wäre: Feuerpatsche, Feuerlöscher, Kübelspritze, Löschdecke, Löscheimer</a>
+  }
+</div>
+<div class="frage">
+  @if(color){
+    <p [ngClass]='{"richtig":style2[1], "falsch":!style2[1]}'>17. Aus welchen Materialien kann ein Löscheimer bestehen? (Nenne 2 Materialien, Mit Beistrichen getrennt)</p>
+  } @else {
+    <p>17. Aus welchen Materialien kann ein Löscheimer bestehen? (Nenne 2 Materialien, Mit Beistrichen getrennt)</p>
+  }
+  <input type="text" [(ngModel)]="textAnt2">
+  @if(color && !style2[1]){
+    <a> Richtig wäre: Holz, Leder, Leinengewebe, verzinkter Stahl, Stahl</a>
+  }
+</div>
+<div class="frage">
+  @if(color){
+    <p [ngClass]='{"richtig":style2[2], "falsch":!style2[2]}'>18. Welche Leinen gibt es in deiner Feuerwehr? (Nenne 2, Mit Beistrichen getrennt)</p>
+  } @else {
+    <p>18. Welche Leinen gibt es in deiner Feuerwehr? (Nenne 2, Mit Beistrichen getrennt)</p>
+  }
+  <input type="text" [(ngModel)]="textAnt3">
+  @if(color && !style2[2]){
+    <a> Richtig wäre: Arbeitsleine, Rettungsleine, Halteleine, Ventilleine</a>
+  }
+</div>
+
+<button (click)="fertig()">Abgeben</button>
+
+<br>
+<br>
+
+<a>Ergebnis: {{ endErg() }}/18 -> ({{ 18 - endErg() }} Fehler) </a>
+<br>
+@if (endErg() < 12 && endErg() != 0) {
+  <a>(Durchgefallen😭)</a>
+} @else if (endErg() >= 12) {
+  <a>(Bestanden👍)</a>
+}
+<br>
+<br>
+
+<button (click)="reset()">Neu Beginnen</button>
+
+<br>

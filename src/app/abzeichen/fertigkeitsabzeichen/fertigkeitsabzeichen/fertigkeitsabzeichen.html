@@ -1,0 +1,32 @@
+@if (anzeigen) {
+  <h3>Wähle deine Art von Fertigkeitsabzeichen: </h3>
+  <select [(ngModel)]="art">
+    <option>Melder</option>
+    <option>Feuerwehrtechnik</option>
+    <option>Feuerwehrtechnikspiel</option>
+    <option>Sicher zu Wasser und am Land</option>
+    <option>Sicher zu Wasser und am Land-Spiel</option>
+  </select>
+}
+
+@if (ausgewaehlt() == "Melder") {
+  <app-melder-ue12></app-melder-ue12>
+} @else if (ausgewaehlt() == "Feuerwehrtechnik") {
+  <app-technik-ue12></app-technik-ue12>
+} @else if (ausgewaehlt() == "Feuerwehrtechnikspiel") {
+  <app-technik-u12></app-technik-u12>
+} @else if (ausgewaehlt() == "Sicher zu Wasser und am Land") {
+  <app-wasser-land-ue12></app-wasser-land-ue12>
+} @else if (ausgewaehlt() == "Sicher zu Wasser und am Land-Spiel") {
+  <app-wasser-land-u12></app-wasser-land-u12>
+}
+
+@if (anzeigen) {
+  <button (click)="auswahl()">Auswählen</button>
+} @else {
+  <button (click)="zurueck()">Auswahl</button>
+}
+
+@if(erorr){
+  <p [style.color]="'red'">Du musst eine Kategorie auswählen!</p>
+}

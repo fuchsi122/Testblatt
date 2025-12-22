@@ -1,0 +1,52 @@
+<header>
+  <h1>Wissenstest: Silber</h1>
+</header>
+
+@for (frage of fragen(); track $index) {
+  <div class="frage">
+    @if (color) {
+      <p [ngClass]='{"richtig":style[$index], "falsch":!style[$index]}'>{{ $index + 1 }}. {{ frage }}</p>
+    } @else {
+      <p>{{ $index + 1 }}. {{ frage }}</p>
+    }
+
+    <div id="bild">
+      <ul>
+        @for (antwort of antworten()[$index]; track $index) {
+          <li>{{ antwort }}</li>
+        }
+      </ul>
+      @if ($index == 29) {
+        <img src="piktogramm.jpg" alt="Piktogramm" height="100">
+      }
+    </div>
+
+    <select [(ngModel)]="antwort[$index]">
+      <option>A</option>
+      <option>B</option>
+      <option>C</option>
+    </select>
+    @if (color && !style[$index]) {
+      <a> Richtig ist: {{ richtig()[$index] }}</a>
+    }
+  </div>
+}
+
+<button (click)="fertig()">Abgeben</button>
+
+<br>
+<br>
+
+<a>Ergebnis: {{ endErg() }}/30 -> ({{ 30 - endErg() }} Fehler) </a>
+<br>
+@if (endErg() < 22 && endErg() != 0) {
+  <a>(Durchgefallen😭)</a>
+} @else if (endErg() >= 22) {
+  <a>(Bestanden👍)</a>
+}
+<br>
+<br>
+
+<button (click)="reset()">Neu Beginnen</button>
+
+<br>

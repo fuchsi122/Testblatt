@@ -1,0 +1,48 @@
+<header>
+  <h1>Testblätter</h1>
+</header>
+
+@if (anzeigen) {
+  <h3>Wähle die Art deines Abzeichens aus: </h3>
+
+  <select [(ngModel)]="art">
+    <option>Erprobung</option>
+    <option>Fertigkeitsabzeichen</option>
+    <option>Wissenstest</option>
+  </select>
+}
+
+@if (ausgewaehlt() == "Erprobung") {
+  <app-Erprobung></app-Erprobung>
+} @else if (ausgewaehlt() == "Fertigkeitsabzeichen") {
+  <app-fertigkeitsabzeichen></app-fertigkeitsabzeichen>
+} @else if (ausgewaehlt() == "Wissenstest") {
+  <app-wissenstest></app-wissenstest>
+}
+
+@if (anzeigen) {
+  <button (click)="auswahl()">Auswählen</button>
+  <br>
+  <p>Du kannst auch das <b>Gerätequiz</b> zur Erprobung machen: <a href="https://geraetequiz.netlify.app/">Hier</a></p>
+} @else {
+  <button (click)="zurueck()">Hauptmenü</button>
+}
+@if (erorr) {
+  <p [style.color]="'red'">Du musst eine Kategorie auswählen!</p>
+}
+@if (anzeigen) {
+  <br>
+  @if (que) {
+    <p>^ Quellen anzeigen: <a (click)="quellen()">Hier</a></p>
+  } @else {
+    <p>> Quellen anzeigen: <a (click)="quellen()">Hier</a></p>
+  }
+
+  @if (que) {
+    <a></a>
+    <app-quellen></app-quellen>
+  }
+}
+<footer>
+  <p>©Nico Fuchs, FM 23.10.2025 (FF-Kilb)</p>
+</footer>

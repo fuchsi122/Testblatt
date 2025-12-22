@@ -1,0 +1,31 @@
+/*Listen Elemente mit Buchstaben und geeigneter Abstand zur nächsten Frage*/
+ul li {
+  list-style-type: upper-alpha;
+  padding-top: 5px;
+}
+
+/*Design wenn eine Frage Falsche beantwortet wurde */
+.falsch {
+  background-color: red;
+}
+/*Design wenn eine Frage Richtig beantwortet wurde */
+.richtig {
+  background-color: greenyellow;
+}
+
+/*Design für Abstände, Rahmen und Fragen*/
+.frage{
+  border: 2px solid black;
+  margin-bottom: 2px;
+}
+.frage p {
+  display: flex;
+  margin-left: 10px;
+}
+
+/*Design für Button*/
+button{
+  background-color: #ffa73f;
+  color: black;
+  border: 2px solid black;
+}

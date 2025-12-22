@@ -1,0 +1,32 @@
+@if (anzeigen) {
+  <h3>Wähle deine Art von Erprobung: </h3>
+  <select [(ngModel)]="art">
+    <option>1.Erprobungsspiel</option>
+    <option>2.Erprobungsspiel</option>
+    <option>1.Erprobung</option>
+    <option>2.Erprobung</option>
+    <option>3.Erprobung</option>
+  </select>
+}
+
+@if (ausgewaehlt() == "1.Erprobungsspiel") {
+  <app-erprobungsspiel1></app-erprobungsspiel1>
+} @else if (ausgewaehlt() == "2.Erprobungsspiel") {
+  <app-erprobungsspiel2></app-erprobungsspiel2>
+} @else if (ausgewaehlt() == "1.Erprobung") {
+  <app-erprobung1></app-erprobung1>
+} @else if (ausgewaehlt() == "2.Erprobung") {
+  <app-erprobung2></app-erprobung2>
+} @else if (ausgewaehlt() == "3.Erprobung") {
+  <app-erprobung3></app-erprobung3>
+}
+
+@if (anzeigen) {
+  <button (click)="auswahl()">Auswählen</button>
+} @else {
+  <button (click)="zurueck()">Auswahl</button>
+}
+
+@if(erorr){
+  <p [style.color]="'red'">Du musst eine Kategorie auswählen!</p>
+}

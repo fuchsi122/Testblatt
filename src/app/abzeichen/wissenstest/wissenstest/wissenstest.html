@@ -1,0 +1,32 @@
+@if (anzeigen) {
+  <h3>Wähle deine Art von Wissenstest: </h3>
+  <select [(ngModel)]="art">
+    <option>Bronze-Spiel</option>
+    <option>Silber-Spiel</option>
+    <option>Bronze</option>
+    <option>Silber</option>
+    <option>Gold/Doppel Gold</option>
+  </select>
+}
+
+@if (ausgewaehlt() == "Bronze-Spiel") {
+  <app-bronze-u12></app-bronze-u12>
+} @else if (ausgewaehlt() == "Silber-Spiel") {
+  <app-silber-u12></app-silber-u12>
+} @else if (ausgewaehlt() == "Bronze") {
+  <app-bronze-ue12></app-bronze-ue12>
+} @else if (ausgewaehlt() == "Silber") {
+  <app-silber-ue12></app-silber-ue12>
+} @else if (ausgewaehlt() == "Gold/Doppel Gold") {
+  <app-gold-ue12></app-gold-ue12>
+}
+
+@if (anzeigen) {
+  <button (click)="auswahl()">Auswählen</button>
+} @else {
+  <button (click)="zurueck()">Auswahl</button>
+}
+
+@if(erorr){
+  <p [style.color]="'red'">Du musst eine Kategorie auswählen!</p>
+}

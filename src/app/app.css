@@ -1,0 +1,30 @@
+/*Design für Header und footer*/
+header{
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  background: bisque;
+  border: 2px solid black;
+  height: 100px;
+}
+footer{
+  text-align: center;
+  background: bisque;
+  border: 2px solid black;
+  height: 50px;
+}
+
+/* Design für den Button*/
+button{
+  background-color: #ffa73f;
+  color: black;
+  border: 2px solid black;
+  margin: 10px;
+}
+
+/*Design für Link zu den Quellen*/
+a {
+  color: deepskyblue;
+  text-decoration: underline;
+}

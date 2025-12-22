@@ -1,0 +1,12 @@
+/*Das kein Abstand zwischen den Listen und der zugehörigen Überschrift ist*/
+p {
+  margin-bottom: 0;
+}
+ul {
+  margin-top: 0;
+}
+
+/*Das der Quellen Block eingerückt ist*/
+#quellen {
+  margin-left: 40px;
+}

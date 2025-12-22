@@ -1,0 +1,112 @@
+<header>
+  <h1>3.Erprobung: </h1>
+</header>
+
+@for (frage of fragen(); track $index) {
+  <div class="frage">
+    @if (color) {
+      <p [ngClass]='{"richtig":style[$index], "falsch":!style[$index]}'>{{ $index + 1 }}. {{ frage }}</p>
+    } @else {
+      <p>{{$index + 1 }}. {{ frage }}</p>
+    }
+    <ul>
+      @for (antwort of antworten()[$index]; track $index) {
+        <li>{{antwort}}</li>
+      }
+      <select [(ngModel)]="antwort[$index]">
+        <option>A</option>
+        <option>B</option>
+        <option>C</option>
+      </select>
+      @if(color && !style[$index]){
+        <a> Richtig ist: {{richtig()[$index]}}</a>
+      }
+    </ul>
+  </div>
+}
+
+<div class="frage">
+  @if(color){
+    <p [ngClass]='{"richtig":style2[0], "falsch":!style2[0]}'>21. Welche Kleinlöschgeräte kennst du? (Nenne 2, mit Beistrichen trennen)</p>
+  } @else {
+    <p>21. Welche Kleinlöschgeräte kennst du? (Nenne 2, mit Beistrichen trennen)</p>
+  }
+  <input type="text" [(ngModel)]="textAnt">
+  @if(color && !style2[0]){
+    <a> Richtig wäre: Feuerpatsche, Feuerlöscher, Kübelspritze, Löschdecke, Löscheimer</a>
+  }
+</div>
+<div class="frage">
+  @if(color){
+    <p [ngClass]='{"richtig":style2[1], "falsch":!style2[1]}'>22. Welchen Dienstgrad trägt der Leiter des Verwaltungsdienst deiner Feuerwehr? (Abkürzung)</p>
+  } @else {
+    <p>22. Welchen Dienstgrad trägt der Leiter des Verwaltungsdienst deiner Feuerwehr? (Abkürzung)</p>
+  }
+  <input type="text" [(ngModel)]="textAnt2">
+  @if(color && !style2[1]){
+    <a> Richtig wäre: OV</a>
+  }
+</div>
+<div class="frage">
+  @if(color){
+    <p [ngClass]='{"richtig":style2[2], "falsch":!style2[2]}'>23. Wozu dient die Feuerpatsche?</p>
+  } @else {
+    <p>23. Wozu dient die Feuerpatsche?</p>
+  }
+  <input type="text" [(ngModel)]="textAnt3">
+  @if(color && !style2[2]){
+    <a> Richtig wäre: Ausstreichen von Glutnestern</a>
+  }
+</div>
+<div class="frage">
+  @if(color){
+    <p [ngClass]='{"richtig":style2[3], "falsch":!style2[3]}'>24. Welche Leitern kennst du? (Nenne 3, mit Beistrichen trennen)</p>
+  } @else {
+    <p>24. Welche Leitern kennst du? (Nenne 3, mit Beistrichen trennen)</p>
+  }
+  <input type="text" [(ngModel)]="textAnt4">
+  @if(color && !style2[3]){
+    <a> Richtig wäre: Steckleiter, Strickleiter, Hackenleiter, Schiebeleiter</a>
+  }
+</div>
+<div class="frage">
+  @if(color){
+    <p [ngClass]='{"richtig":style2[4], "falsch":!style2[4]}'>25. Welchen Dienstgrad trägt der 1.Feuerwehrkommandantstellvertreter deiner Feuerwehr? (Abkürzung)</p>
+  } @else {
+    <p>25. Welchen Dienstgrad trägt der 1.Feuerwehrkommandantstellvertreter deiner Feuerwehr? (Abkürzung)</p>
+  }
+  <input type="text" [(ngModel)]="textAnt5">
+  @if(color && !style2[4]){
+    <a> Richtig wäre: OBI</a>
+  }
+</div>
+<div class="frage">
+  @if(color){
+    <p [ngClass]='{"richtig":style2[5], "falsch":!style2[5]}'>26. Wie heißen die Mitglieder deines Feuerwehrkommandos? (Vor- und Nachname, mit Beistrich getrennt)</p>
+  } @else {
+    <p>26. Wie heißen die Mitglieder deines Feuerwehrkommandos? (Vor- und Nachname, mit Beistrich getrennt)</p>
+  }
+  <input type="text" [(ngModel)]="textAnt6">
+  @if(color && !style2[5]){
+    <a> Richtig wäre: Jürgen Pitzl, Thomas Grasmann, Andreas Thanner, Tobias Fischer</a>
+  }
+</div>
+
+<button (click)="fertig()">Abgeben</button>
+
+<br>
+<br>
+
+<a>Ergebnis: {{ endErg() }}/26 -> ({{ 26 - endErg() }} Fehler) </a>
+<br>
+@if (endErg() < 18 && endErg() != 0) {
+  <a>(Durchgefallen😭)</a>
+} @else if (endErg() >= 18) {
+  <a>(Bestanden👍)</a>
+}
+<br>
+<br>
+
+<button (click)="reset()">Neu Beginnen</button>
+
+<br>
