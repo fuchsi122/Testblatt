@@ -2,6 +2,7 @@
   <h3>Wähle deine Art von Fertigkeitsabzeichen: </h3>
   <select [(ngModel)]="art">
     <option>Melder</option>
+    <option>Melderspiel</option>
     <option>Feuerwehrtechnik</option>
     <option>Feuerwehrtechnikspiel</option>
     <option>Sicher zu Wasser und am Land</option>
@@ -11,7 +12,9 @@
 
 @if (ausgewaehlt() == "Melder") {
   <app-melder-ue12></app-melder-ue12>
-} @else if (ausgewaehlt() == "Feuerwehrtechnik") {
+} @else if(ausgewaehlt() == "Melderspiel"){
+  <app-melder-u12></app-melder-u12>
+}@else if (ausgewaehlt() == "Feuerwehrtechnik") {
   <app-technik-ue12></app-technik-ue12>
 } @else if (ausgewaehlt() == "Feuerwehrtechnikspiel") {
   <app-technik-u12></app-technik-u12>
