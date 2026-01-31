@@ -65,7 +65,7 @@ export class TechnikUe12 {
     ["Zwei","Nicht erlaubt","Beliebig viele"],
     ["Am Umfang","An der Länge","An der farblichen Kennzeichnung"],
   ])
-  richtig = signal(["B", "B", "C", "A", "B", "A", "C", "B", "A", "C", "A", "C", "C", "B", "A", "B", "A", "C", "B", "A", "C", "C", "B", "C"])
+  richtig = signal(["B", "B", "C", "A", "B", "A", "C", "B", "C", "C", "A", "C", "C", "B", "A", "B", "A", "C", "B", "A", "C", "C", "B", "C"])
 
   // speichert die Antworten
   antwort:string[] = []
