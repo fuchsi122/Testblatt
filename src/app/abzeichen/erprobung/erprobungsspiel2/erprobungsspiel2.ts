@@ -40,6 +40,8 @@ export class Erprobungsspiel2 {
     ["Mit der Arbeitsleine dürfen keine Personen oder Tiere gesichert oder gerettet werden!","Es gibt keinen Unterschied.","Die Arbeitsleine ist länger"],
   ]);
   richtig  = signal(["A", "A", "A", "A", "A", "A", "A", "A", "A", "A"]);
+  // Speichert die Antwortmöglichkeiten
+  buchstaben = ["A","B","C"]
 
   // speichert die Antworten
   antwort:string[] = []
