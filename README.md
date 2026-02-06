@@ -24,3 +24,6 @@ Die Erprobung bezieht sich auf die eigene Feuerwehr, in diesem Fall auf die Frei
 - 28.12.2025: Erste Fertigstellung und Veröffentlichung
 - 24.01.2026: Hinzufügen Testblatt - Fertigkeitsabzeichen Melderspiel
 - 24.01.2026: Aktualisieren Fragen von Fertigkeitsabzeichen Melder
+- 06.02.2026: Überarbeitung Wissenstest, Antwort jetzt über Radioboxen
+- 06.02.2026: Überarbeitung Erprobung, Antwort jetzt über Radioboxen
+- 06.02.2026: Überarbeitung Fertigkeitsabzeichen, Antwort jetzt über Radioboxen
