@@ -29,16 +29,16 @@ export class Wissenstest {
   anzeigen = true;
 
   // Ob Dropdown element leer ist
-  erorr = false;
+  error = false;
 
   // um die Kategorie auszuwählen
   auswahl(){
     if(this.art() != "") {
       this.ausgewaehlt.set(this.art());
       this.anzeigen = false;
-      this.erorr = false;
+      this.error = false;
     } else{
-      this.erorr = true;
+      this.error = true;
     }
   }
   // um zurück in das Hauptmenü zu kommen

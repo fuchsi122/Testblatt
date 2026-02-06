@@ -29,8 +29,8 @@ export class SilberUe12 {
     "Wie und womit löscht man Fettbrände in einer Küche?",
     "Womit werden Kabelbrände in einem Kfz gelöscht?",
     "Welchen Knoten verwendet man zum schnellen Aufziehen von Gegenständen oder Werkzeugen?",
-    "Wie kann eine starke Blutung schnellstmöglich versorgt werden? A) Ein Pflaster auf die Wunde kleben B) Stabile Seitenlage C) Fingerdruck bzw. Druckverband",
-    "Welche Ausrüstung ist beim Verkehr regeln einer Einsatzstelle zu verwenden? A) Warnweste, Winkerkelle, Verkehrsleitkegel B) Nur Handschuhe C) Taschenlampe",
+    "Wie kann eine starke Blutung schnellstmöglich versorgt werden?",
+    "Welche Ausrüstung ist beim Verkehr regeln einer Einsatzstelle zu verwenden?",
     "Welches Kleinlöschgerät wird bei Wiesen- und Waldbränden eingesetzt?",
     "Welche nach DIN genormten Übergangsstücke gibt es?",
     "Welchen Dienstgrad trägt der Bezirksfeuerwehrkommandantstellvertreter?",
@@ -89,6 +89,8 @@ export class SilberUe12 {
   endErg = signal(0);
   // ob Ergebnis schon ausgewertet wurde, zeigt an, ob richtig oder falsch beantwortet wurde
   color = false
+  // Speichert die Antwortmöglichkeiten
+  buchstaben = ["A","B","C"]
 
   // Funktion, die die antworten mit den Lösungen überprüft
   fertig(){
