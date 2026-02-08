@@ -62,6 +62,8 @@ export class MelderU12 {
   endErg = signal(0);
   // ob Ergebnis schon ausgewertet wurde, zeigt an, ob richtig oder falsch beantwortet wurde
   color = false
+  // Speichert die Antwortmöglichkeiten
+  buchstaben = ["A","B","C"]
 
   // Funktion, die die antworten mit den Lösungen überprüft
   fertig(){

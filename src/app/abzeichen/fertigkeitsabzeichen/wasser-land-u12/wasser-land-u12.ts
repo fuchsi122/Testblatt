@@ -30,7 +30,7 @@ export class WasserLandU12 {
     "Wer bildet die Besatzung der Feuerwehrzille?",
     "Welche Erste-Hilfe-Maßnahmen soll bei Insektenstichen im Mund-Rachen-Raum erfolgen?",
     "Welches Rettungsmittel muss die Zillenbesatzung unbedingt tragen?",
-    "Mit welchen geräten wird eine Einsatzstelle richtig abgesichert?",
+    "Mit welchen Geräten wird eine Einsatzstelle richtig abgesichert?",
     "Wie lang ist eine Feuerwehrzille?"
   ])
   antworten = signal([
@@ -60,6 +60,8 @@ export class WasserLandU12 {
   endErg = signal(0);
   // ob Ergebnis schon ausgewertet wurde, zeigt an, ob richtig oder falsch beantwortet wurde
   color = false
+  // Speichert die Antwortmöglichkeiten
+  buchstaben = ["A","B","C"]
 
   // Funktion, die die antworten mit den Lösungen überprüft
   fertig(){
