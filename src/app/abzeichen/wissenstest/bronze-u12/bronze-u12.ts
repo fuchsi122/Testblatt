@@ -21,7 +21,7 @@ export class BronzeU12 {
   fragen = signal([
     "Aus welchen Uniformstücken setzt sich die Bekleidung der Feuerwehr",
     "Dürfen Mitglieder der Feuerwehrjugend zu Einsätzen ausrücken?",
-    "Wie lautete der Wahlspruch der Feuerwehrjugend?\",jugend zusammen?",
+    "Wie lautete der Wahlspruch der Feuerwehrjugend?",
     "Wann findet der jährliche Zivilschutzalarm statt?",
     "Welche Länge hat üblicherweise ein C-Druckschlauch?",
     "Wozu dient ein Schlauchträger?",
@@ -51,6 +51,8 @@ export class BronzeU12 {
   endErg = signal(0);
   // ob Ergebnis schon ausgewertet wurde, zeigt an, ob richtig oder falsch beantwortet wurde
   color = false
+  // Speichert die Antwortmöglichkeiten
+  buchstaben = ["A","B","C"]
 
   // Funktion, die die antworten mit den Lösungen überprüft
   fertig(){

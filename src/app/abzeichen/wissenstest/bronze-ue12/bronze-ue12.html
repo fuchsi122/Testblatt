@@ -2,22 +2,18 @@
   <h1>Wissenstest: Bronze</h1>
 </header>
 
-@for (frage of fragen(); track $index) {
+@for (frage of fragen(); track i; let i = $index) {
   <div class="frage">
     @if (color) {
-      <p [ngClass]='{"richtig":style[$index], "falsch":!style[$index]}'>{{ $index + 1 }}. {{ frage }}</p>
+      <p [ngClass]='{"richtig":style[i], "falsch":!style[i]}'>{{ i + 1 }}. {{ frage }}</p>
     } @else {
-      <p>{{$index + 1 }}. {{ frage }}</p>
+      <p>{{i + 1 }}. {{ frage }}</p>
     }
     <ul>
-      @for (antwort of antworten()[$index]; track $index) {
-        <li>{{antwort}}</li>
+      @for (awort of antworten()[i]; track j; let j = $index) {
+        <li><input type="radio" [name]="'frage' + i" [value]="buchstaben[j]" [(ngModel)]="antwort[i]" [ngModelOptions]="{standalone: true}"> {{awort}}</li>
       }
-      <select [(ngModel)]="antwort[$index]">
-        <option>A</option>
-        <option>B</option>
-        <option>C</option>
-      </select>
+
       @if(color && !style[$index]){
         <a> Richtig ist: {{richtig()[$index]}}</a>
       }
