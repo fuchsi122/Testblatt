@@ -1,0 +1,28 @@
+<h3>Wähle die Art deines Abzeichens aus: </h3>
+
+<select [(ngModel)]="art">
+  <option>Erprobung</option>
+  <option>Fertigkeitsabzeichen</option>
+  <option>Wissenstest</option>
+  <option>FJLA Gold</option>
+</select>
+
+<button (click)="auswahl()">Auswählen</button>
+<br>
+<p>Du kannst auch das <b>Gerätequiz</b> zur Erprobung machen: <a href="https://geraetequiz.netlify.app/">Hier</a></p>
+
+@if (erorr) {
+  <p [style.color]="'red'">Du musst eine Kategorie auswählen!</p>
+}
+
+<br>
+@if (que) {
+  <p>^ Quellen anzeigen: <a (click)="quellen()">Hier</a></p>
+} @else {
+  <p>> Quellen anzeigen: <a (click)="quellen()">Hier</a></p>
+}
+
+@if (que) {
+  <a></a>
+  <app-quellen></app-quellen>
+}

@@ -1,51 +1,48 @@
-import {Component, signal} from '@angular/core';
+import {Component, inject, signal} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {Erprobung1} from '../erprobung1/erprobung1';
-import {Erprobung2} from '../erprobung2/erprobung2';
-import {Erprobungsspiel1} from '../erprobungsspiel1/erprobungsspiel1';
-import {Erprobungsspiel2} from '../erprobungsspiel2/erprobungsspiel2';
-import {Erprobung3} from '../erprobung3/erprobung3';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-Erprobung',
   imports: [
     ReactiveFormsModule,
     FormsModule,
-    Erprobung1,
-    Erprobung2,
-    Erprobungsspiel1,
-    Erprobungsspiel2,
-    Erprobung3
   ],
   templateUrl: './erprobungen.html',
   styleUrl: './erprobungen.css',
 })
 
 export class Erprobungen {
+  // routing
+  router = inject(Router);
   // Zugriff auf Dropdown element
   art = signal("")
   // Ausgewählte kategorie nach dem der Button gedrückt wurde
   ausgewaehlt = signal("")
-  // Soll die Auswahl der Kategorie angezeigt werden
-  anzeigen = true;
-
   // Ob Dropdown element leer ist
   erorr = false;
 
   // um die Kategorie auszuwählen
-  auswahl(){
-    if(this.art() != "") {
-      this.ausgewaehlt.set(this.art());
-      this.anzeigen = false;
-      this.erorr = false;
-    } else{
+  auswahl() {
+    if (this.art() == "1.Erprobungsspiel") {
+      this.router.navigate(['/abzeichen/erprobung/U1']);
+    } else if (this.art() == "2.Erprobungsspiel") {
+      this.router.navigate(['/abzeichen/erprobung/U2']);
+    } else if (this.art() == "1.Erprobung") {
+      this.router.navigate(['/abzeichen/erprobung/UE1']);
+    } else if (this.art() == "2.Erprobung") {
+      this.router.navigate(['/abzeichen/erprobung/UE2']);
+    } else if (this.art() == "3.Erprobung") {
+      this.router.navigate(['/abzeichen/erprobung/UE3']);
+    } else {
       this.erorr = true;
     }
   }
+
   // um zurück in das Hauptmenü zu kommen
-  zurueck(){
-    this.anzeigen = true
+  zurueck() {
     this.art.set("");
     this.ausgewaehlt.set("");
+    this.router.navigate(['/']);
   }
 }

@@ -1,6 +1,7 @@
-import {Component, signal} from '@angular/core';
+import {Component, inject, signal} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgClass} from '@angular/common';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-erprobung3',
@@ -14,6 +15,8 @@ import {NgClass} from '@angular/common';
 })
 
 export class Erprobung3 {
+  // routing
+  router = inject(Router);
   // Alle Fragen, Antwortmöglichkeiten und die Lösungen
   fragen = signal([
     "Aus welchen Teilen besteht eine Kübelspritze?",
@@ -87,7 +90,6 @@ export class Erprobung3 {
     this.fertig2();
     this.color = true;
   }
-
   // Funktion zum Zurücksetzen von den Antworten
   reset() {
     this.endErg.set(0)
@@ -102,6 +104,14 @@ export class Erprobung3 {
     this.textAnt5.set("");
     this.textAnt6.set("");
     this.style2 = []
+  }
+  // Zurück zur Erprobungsauswahl
+  back(){
+    this.router.navigate(['/abzeichen/erprobung']);
+  }
+  // Zurück ins Hauptmenü
+  menue(){
+    this.router.navigate(['']);
   }
 
   // Antworten für Text fragen

@@ -1,6 +1,7 @@
-import {Component, signal} from '@angular/core';
+import {Component, inject, signal} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgClass} from '@angular/common';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-melder-u12',
@@ -13,6 +14,8 @@ import {NgClass} from '@angular/common';
   styleUrl: './melder-u12.css',
 })
 export class MelderU12 {
+  // routing
+  router = inject(Router);
   // Alle Fragen, Antwortmöglichkeiten und die Lösungen
   fragen = signal([
     "Wann findet der jährliche österreichweite Zivilschutz-Probealarm statt?",
@@ -85,5 +88,13 @@ export class MelderU12 {
     this.antwort = [];
     this.style = [];
     this.color = false;
+  }
+  // Zurück zur Fertigkeitsabzeichen Auswahl
+  back(){
+    this.router.navigate(['/abzeichen/fertigkeitsabzeichen']);
+  }
+  // Zurück ins Hauptmenü
+  menue(){
+    this.router.navigate(['']);
   }
 }

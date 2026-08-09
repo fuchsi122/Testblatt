@@ -1,6 +1,7 @@
-import {Component, signal} from '@angular/core';
+import {Component, inject, signal} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgClass} from '@angular/common';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-bronze-u12',
@@ -14,6 +15,8 @@ import {NgClass} from '@angular/common';
 })
 
 export class BronzeU12 {
+  // routing
+  router = inject(Router);
   // Alle Fragen, Antwortmöglichkeiten und die Lösungen
   fragen = signal([
     "Aus welchen Uniformstücken setzt sich die Bekleidung der Feuerwehr",
@@ -71,5 +74,13 @@ export class BronzeU12 {
     this.antwort = [];
     this.style = [];
     this.color = false;
+  }
+  // Zurück zur Wissenstestauswahl
+  back(){
+    this.router.navigate(['/abzeichen/wissenstest']);
+  }
+  // Zurück ins Hauptmenü
+  menue(){
+    this.router.navigate(['']);
   }
 }

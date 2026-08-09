@@ -1,6 +1,7 @@
-import {Component, signal} from '@angular/core';
+import {Component, inject, signal} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgClass} from '@angular/common';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-silber-u12',
@@ -14,6 +15,8 @@ import {NgClass} from '@angular/common';
 })
 
 export class SilberU12 {
+  // routing
+  router = inject(Router);
   // Alle Fragen, Antwortmöglichkeiten und die Lösungen
   fragen = signal([
     "Welche Voraussetzungen müssen für eine Verbrennung gegeben sein?",
@@ -81,5 +84,13 @@ export class SilberU12 {
     this.antwort = [];
     this.style = [];
     this.color = false;
+  }
+  // Zurück zur Wissenstestauswahl
+  back(){
+    this.router.navigate(['/abzeichen/wissenstest']);
+  }
+  // Zurück ins Hauptmenü
+  menue(){
+    this.router.navigate(['']);
   }
 }

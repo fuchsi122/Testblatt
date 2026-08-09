@@ -1,6 +1,7 @@
-import {Component, signal} from '@angular/core';
+import {Component, inject, signal} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgClass} from '@angular/common';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-erprobung1',
@@ -14,6 +15,8 @@ import {NgClass} from '@angular/common';
 })
 
 export class Erprobung1 {
+  // routing
+  router = inject(Router);
   // Alle Fragen, Antwortmöglichkeiten und die Lösungen
   fragen = signal([
     "Wobei handelt es sich um ein Kleinlöschgerät?",
@@ -69,6 +72,14 @@ export class Erprobung1 {
     this.textAnt.set("");
     this.textAnt2.set("");
     this.style2 = []
+  }
+  // Zurück zur Erprobungsauswahl
+  back(){
+    this.router.navigate(['/abzeichen/erprobung']);
+  }
+  // Zurück ins Hauptmenü
+  menue(){
+    this.router.navigate(['']);
   }
 
   // Antworten für Text fragen

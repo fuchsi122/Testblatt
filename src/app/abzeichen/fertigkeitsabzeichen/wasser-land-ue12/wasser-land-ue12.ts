@@ -1,6 +1,7 @@
-import {Component, signal} from '@angular/core';
+import {Component, inject, signal} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgClass} from '@angular/common';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-wasser-land-ue12',
@@ -14,6 +15,8 @@ import {NgClass} from '@angular/common';
 })
 
 export class WasserLandUe12 {
+  // routing
+  router = inject(Router);
   // Alle Fragen, Antwortmöglichkeiten und die Lösungen
   fragen = signal([
     "Wie nennt man den vorderen und den hinteren Teil der Feuerwehrzille?",
@@ -132,5 +135,13 @@ export class WasserLandUe12 {
     this.antwort = [];
     this.style = [];
     this.color = false;
+  }
+  // Zurück zur Fertigkeitsabzeichen Auswahl
+  back(){
+    this.router.navigate(['/abzeichen/fertigkeitsabzeichen']);
+  }
+  // Zurück ins Hauptmenü
+  menue(){
+    this.router.navigate(['']);
   }
 }

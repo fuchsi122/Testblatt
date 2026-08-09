@@ -1,6 +1,7 @@
-import {Component, signal} from '@angular/core';
+import {Component, inject, signal} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgClass} from '@angular/common';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-bronze-ue12',
@@ -14,6 +15,8 @@ import {NgClass} from '@angular/common';
 })
 
 export class BronzeUe12 {
+  // routing
+  router = inject(Router);
   // Alle Fragen, Antwortmöglichkeiten und die Lösungen
   fragen = signal([
     "Aus wie vielen Personen besteht eine Feuerwehrjugendbewerbsgruppe?",
@@ -92,5 +95,13 @@ export class BronzeUe12 {
     this.antwort = [];
     this.style = [];
     this.color = false;
+  }
+  // Zurück zur Wissenstestauswahl
+  back(){
+    this.router.navigate(['/abzeichen/wissenstest']);
+  }
+  // Zurück ins Hauptmenü
+  menue(){
+    this.router.navigate(['']);
   }
 }

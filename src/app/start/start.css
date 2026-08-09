@@ -1,0 +1,13 @@
+/* Design für den Button*/
+button{
+  background-color: #ffa73f;
+  color: black;
+  border: 2px solid black;
+  margin: 10px;
+}
+
+/*Design für Link zu den Quellen*/
+a {
+  color: deepskyblue;
+  text-decoration: underline;
+}

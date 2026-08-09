@@ -1,0 +1,47 @@
+import {Routes} from '@angular/router';
+import {Start} from './start/start';
+import {FjlaGold} from './abzeichen/fjla/fjla-gold/fjla-gold';
+import {Erprobungen} from './abzeichen/erprobung/Erprobung/erprobungen';
+import {Erprobungsspiel1} from './abzeichen/erprobung/erprobungsspiel1/erprobungsspiel1';
+import {Erprobungsspiel2} from './abzeichen/erprobung/erprobungsspiel2/erprobungsspiel2';
+import {Erprobung1} from './abzeichen/erprobung/erprobung1/erprobung1';
+import {Erprobung2} from './abzeichen/erprobung/erprobung2/erprobung2';
+import {Erprobung3} from './abzeichen/erprobung/erprobung3/erprobung3';
+import {Fertigkeitsabzeichen} from './abzeichen/fertigkeitsabzeichen/fertigkeitsabzeichen/fertigkeitsabzeichen';
+import {MelderU12} from './abzeichen/fertigkeitsabzeichen/melder-u12/melder-u12';
+import {MelderUe12} from './abzeichen/fertigkeitsabzeichen/melder-ue12/melder-ue12';
+import {TechnikU12} from './abzeichen/fertigkeitsabzeichen/technik-u12/technik-u12';
+import {TechnikUe12} from './abzeichen/fertigkeitsabzeichen/technik-ue12/technik-ue12';
+import {WasserLandU12} from './abzeichen/fertigkeitsabzeichen/wasser-land-u12/wasser-land-u12';
+import {WasserLandUe12} from './abzeichen/fertigkeitsabzeichen/wasser-land-ue12/wasser-land-ue12';
+import {Wissenstest} from './abzeichen/wissenstest/wissenstest/wissenstest';
+import {BronzeU12} from './abzeichen/wissenstest/bronze-u12/bronze-u12';
+import {SilberU12} from './abzeichen/wissenstest/silber-u12/silber-u12';
+import {BronzeUe12} from './abzeichen/wissenstest/bronze-ue12/bronze-ue12';
+import {SilberUe12} from './abzeichen/wissenstest/silber-ue12/silber-ue12';
+import {GoldUe12} from './abzeichen/wissenstest/gold-ue12/gold-ue12';
+
+export const routes:Routes = [
+  {path: 'abzeichen/erprobung', component: Erprobungen},
+  {path: 'abzeichen/erprobung/U1', component: Erprobungsspiel1},
+  {path: 'abzeichen/erprobung/U2', component: Erprobungsspiel2},
+  {path: 'abzeichen/erprobung/UE1', component: Erprobung1},
+  {path: 'abzeichen/erprobung/UE2', component: Erprobung2},
+  {path: 'abzeichen/erprobung/UE3', component: Erprobung3},
+  {path: 'abzeichen/fertigkeitsabzeichen', component: Fertigkeitsabzeichen},
+  {path: 'abzeichen/fertigkeitsabzeichen/UMelder', component: MelderU12},
+  {path: 'abzeichen/fertigkeitsabzeichen/UEMelder', component: MelderUe12},
+  {path: 'abzeichen/fertigkeitsabzeichen/UTechnik', component: TechnikU12},
+  {path: 'abzeichen/fertigkeitsabzeichen/UETechnik', component: TechnikUe12},
+  {path: 'abzeichen/fertigkeitsabzeichen/UWasser', component: WasserLandU12},
+  {path: 'abzeichen/fertigkeitsabzeichen/UEWasser', component: WasserLandUe12},
+  {path: 'abzeichen/wissenstest', component: Wissenstest},
+  {path: 'abzeichen/wissenstest/UBronze', component: BronzeU12},
+  {path: 'abzeichen/wissenstest/USilber', component: SilberU12},
+  {path: 'abzeichen/wissenstest/UEBronze', component: BronzeUe12},
+  {path: 'abzeichen/wissenstest/UESilber', component: SilberUe12},
+  {path: 'abzeichen/wissenstest/UEGold', component: GoldUe12},
+  {path: 'abzeichen/fjlaGold', component: FjlaGold},
+  {path: '', component: Start},
+  {path: '**', redirectTo:''},
+]

@@ -1,6 +1,7 @@
-import {Component, signal} from '@angular/core';
+import {Component, inject, signal} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgClass} from '@angular/common';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-erprobungsspiel2',
@@ -14,6 +15,8 @@ import {NgClass} from '@angular/common';
 })
 
 export class Erprobungsspiel2 {
+  // routing
+  router = inject(Router);
   // Alle Fragen, Antwortmöglichkeiten und die Lösungen
   fragen = signal([
     "Wie viele Personen bedienen eine Kübelspritze?",
@@ -72,5 +75,13 @@ export class Erprobungsspiel2 {
     this.antwort = [];
     this.style = [];
     this.color = false;
+  }
+  // Zurück zur Erprobungsauswahl
+  back(){
+    this.router.navigate(['/abzeichen/erprobung']);
+  }
+  // Zurück ins Hauptmenü
+  menue(){
+    this.router.navigate(['']);
   }
 }

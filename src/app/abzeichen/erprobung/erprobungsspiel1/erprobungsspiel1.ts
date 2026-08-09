@@ -1,6 +1,7 @@
-import {Component, signal} from '@angular/core';
+import {Component, inject, signal} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgClass} from '@angular/common';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-erprobungsspiel1',
@@ -14,6 +15,8 @@ import {NgClass} from '@angular/common';
 })
 
 export class Erprobungsspiel1 {
+  // routing
+  router = inject(Router);
   // Alle Fragen, Antwortmöglichkeiten und die Lösungen
   fragen = signal([
     "Wie heißt der Feuerwehrgruß?",
@@ -71,6 +74,14 @@ export class Erprobungsspiel1 {
     this.color = false;
     this.textAnt.set("");
     this.textAnt2.set("");
+  }
+  // Zurück zur Erprobungsauswahl
+  back(){
+    this.router.navigate(['/abzeichen/erprobung']);
+  }
+  // Zurück ins Hauptmenü
+  menue(){
+    this.router.navigate(['']);
   }
 
   // Antworten für Text fragen

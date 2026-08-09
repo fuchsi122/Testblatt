@@ -1,6 +1,7 @@
-import {Component, signal} from '@angular/core';
+import {Component, inject, signal} from '@angular/core';
 import {NgClass} from '@angular/common';
 import {FormsModule} from '@angular/forms';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-technik-u12',
@@ -13,6 +14,8 @@ import {FormsModule} from '@angular/forms';
 })
 
 export class TechnikU12 {
+  // routing
+  router = inject(Router);
   // Alle Fragen, Antwortmöglichkeiten und die Lösungen
   fragen = signal([
     "Womit musst du kleinere Mengen von ausgelaufenem Treibstoff abdecken?",
@@ -79,5 +82,13 @@ export class TechnikU12 {
     this.antwort = [];
     this.style = [];
     this.color = false;
+  }
+  // Zurück zur Fertigkeitsabzeichen Auswahl
+  back(){
+    this.router.navigate(['/abzeichen/fertigkeitsabzeichen']);
+  }
+  // Zurück ins Hauptmenü
+  menue(){
+    this.router.navigate(['']);
   }
 }

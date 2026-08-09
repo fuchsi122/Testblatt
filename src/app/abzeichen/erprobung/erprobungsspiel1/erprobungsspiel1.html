@@ -40,7 +40,7 @@
   @if(color){
     <p [ngClass]='{"richtig":style2[1], "falsch":!style2[1]}'>10. Wie heißt dein Jugendbetreuer?</p>
   } @else {
-    <p>10. Wie heißt der gehilfe deines Jugendbetreuers? (Nur 1, Nur Vorname)</p>
+    <p>10. Wie heißt der Gehilfe deines Jugendbetreuers? (Nur 1, Nur Vorname)</p>
   }
   <input type="text" [(ngModel)]="textAnt2">
   @if(color && !style2[1]){
@@ -64,5 +64,7 @@
 <br>
 
 <button (click)="reset()">Neu Beginnen</button>
+<button (click)="back()">Zurück</button>
+<button (click)="menue()">Hauptmenü</button>
 
 <br>

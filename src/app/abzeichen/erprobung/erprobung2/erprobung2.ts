@@ -1,6 +1,7 @@
-import {Component, signal} from '@angular/core';
+import {Component, inject, signal} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgClass} from '@angular/common';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-erprobung2',
@@ -14,6 +15,8 @@ import {NgClass} from '@angular/common';
 })
 
 export class Erprobung2 {
+  // routing
+  router = inject(Router);
   // Alle Fragen, Antwortmöglichkeiten und die Lösungen
   fragen = signal([
     "Welcher Hauptlöscheffekt trifft bei der Anwendung der Löschdecke zu?",
@@ -88,6 +91,14 @@ export class Erprobung2 {
     this.textAnt2.set("");
     this.textAnt3.set("");
     this.style2 = []
+  }
+  // Zurück zur Erprobungsauswahl
+  back(){
+    this.router.navigate(['/abzeichen/erprobung']);
+  }
+  // Zurück ins Hauptmenü
+  menue(){
+    this.router.navigate(['']);
   }
 
   // Antworten für Text fragen

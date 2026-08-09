@@ -1,6 +1,7 @@
-import {Component, signal} from '@angular/core';
+import {Component, inject, signal} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgClass} from '@angular/common';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-gold-ue12',
@@ -14,6 +15,8 @@ import {NgClass} from '@angular/common';
 })
 
 export class GoldUe12 {
+  // routing
+  router = inject(Router);
   // Alle Fragen, Antwortmöglichkeiten und die Lösungen
   fragen = signal([
     "Welche Schutzausrüstung verwendest du im Wasserdienst?",
@@ -131,5 +134,13 @@ export class GoldUe12 {
     this.antwort = [];
     this.style = [];
     this.color = false;
+  }
+  // Zurück zur Wissenstestauswahl
+  back(){
+    this.router.navigate(['/abzeichen/wissenstest']);
+  }
+  // Zurück ins Hauptmenü
+  menue(){
+    this.router.navigate(['']);
   }
 }

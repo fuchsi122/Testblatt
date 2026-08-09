@@ -1,6 +1,7 @@
-import {Component, signal} from '@angular/core';
+import {Component, inject, signal} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {NgClass} from '@angular/common';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-technik-ue12',
@@ -12,6 +13,8 @@ import {NgClass} from '@angular/common';
   styleUrl: './technik-ue12.css',
 })
 export class TechnikUe12 {
+  // routing
+  router = inject(Router);
   // Alle Fragen, Antwortmöglichkeiten und die Lösungen
   fragen = signal([
     "Erkläre den Begriff Retten!",
@@ -98,5 +101,13 @@ export class TechnikUe12 {
     this.antwort = [];
     this.style = [];
     this.color = false;
+  }
+  // Zurück zur Fertigkeitsabzeichen Auswahl
+  back(){
+    this.router.navigate(['/abzeichen/fertigkeitsabzeichen']);
+  }
+  // Zurück ins Hauptmenü
+  menue(){
+    this.router.navigate(['']);
   }
 }
