@@ -1,0 +1,34 @@
+<header>
+  <h1>FJLA Gold - Alle Fragen: </h1>
+</header>
+
+@for (frage of fragen(); track $index) {
+  <div class="frage">
+    <p><strong>{{ $index + 1 }}. {{ frage }}</strong></p>
+    <input [ngClass]='{"richtig":richtigeFragen.includes($index), "falsch":falscheFragen.includes($index)}' type="text" [(ngModel)]="antworten[$index]">
+    <button (click)="kontrollieren($index)">kontrollieren</button>
+    <br>
+    @if (style[$index]) {
+      <a><b>Richtig ist:</b> {{ richtig()[$index] }}</a>
+      <br>
+      <button (click)="falscheAnt($index)">❌</button>
+      <button (click)="richtigeAnt($index)">✔️</button>
+    }
+  </div>
+}
+<br>
+
+<a>Ergebnis: {{ punkte }}/40 -> ({{ 40 - punkte }} Fehler) </a>
+<br>
+@if (punkte < 24 && punkte != 0) {
+  <a>(Durchgefallen😭)</a>
+} @else if (punkte >= 24) {
+  <a>(Bestanden👍)</a>
+}
+
+<br>
+<br>
+
+<button (click)="reset()">Neu Beginnen</button>
+<button (click)="back()">Zurück</button>
+<button (click)="menue()">Hauptmenü</button>

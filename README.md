@@ -27,3 +27,7 @@ Die Erprobung bezieht sich auf die eigene Feuerwehr, in diesem Fall auf die Frei
 - 24.01.2026: Hinzufügen Testblatt - Fertigkeitsabzeichen Melderspiel
 - 24.01.2026: Aktualisieren Fragen von Fertigkeitsabzeichen Melder
 - 09.08.2026: FJLA Gold hinzufügen, routing
+- 19.08.2026: FJLA Gold Prüfungsmodus hinzugefügt
+
+ToDo:
+- setIntervall() bei abbruch und neustart logik bearbeiten

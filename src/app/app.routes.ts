@@ -1,6 +1,6 @@
 import {Routes} from '@angular/router';
 import {Start} from './start/start';
-import {FjlaGold} from './abzeichen/fjla/fjla-gold/fjla-gold';
+import {FjlaGoldFragen} from './abzeichen/fjla/fjla-fragen/fjla-gold';
 import {Erprobungen} from './abzeichen/erprobung/Erprobung/erprobungen';
 import {Erprobungsspiel1} from './abzeichen/erprobung/erprobungsspiel1/erprobungsspiel1';
 import {Erprobungsspiel2} from './abzeichen/erprobung/erprobungsspiel2/erprobungsspiel2';
@@ -20,6 +20,8 @@ import {SilberU12} from './abzeichen/wissenstest/silber-u12/silber-u12';
 import {BronzeUe12} from './abzeichen/wissenstest/bronze-ue12/bronze-ue12';
 import {SilberUe12} from './abzeichen/wissenstest/silber-ue12/silber-ue12';
 import {GoldUe12} from './abzeichen/wissenstest/gold-ue12/gold-ue12';
+import {FjlaAllgemein} from './abzeichen/fjla/fjla-allgemein/fjla-allgemein';
+import {FjlaPruefung} from './abzeichen/fjla/fjla-pruefung/fjla-pruefung';
 
 export const routes:Routes = [
   {path: 'abzeichen/erprobung', component: Erprobungen},
@@ -41,7 +43,9 @@ export const routes:Routes = [
   {path: 'abzeichen/wissenstest/UEBronze', component: BronzeUe12},
   {path: 'abzeichen/wissenstest/UESilber', component: SilberUe12},
   {path: 'abzeichen/wissenstest/UEGold', component: GoldUe12},
-  {path: 'abzeichen/fjlaGold', component: FjlaGold},
+  {path: 'abzeichen/fjlaGold', component: FjlaAllgemein},
+  {path: 'abzeichen/fjlaGold/alleFragen', component: FjlaGoldFragen},
+  {path: 'abzeichen/fjlaGold/pruefung', component: FjlaPruefung},
   {path: '', component: Start},
   {path: '**', redirectTo:''},
 ]

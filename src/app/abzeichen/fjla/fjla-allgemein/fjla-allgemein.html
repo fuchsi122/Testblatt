@@ -1,0 +1,13 @@
+<h3>Wähle den Modus vom FJLA-Gold: </h3>
+<select [(ngModel)]="art">
+  <option>Alle Fragen</option>
+  <option>Prüfung</option>
+</select>
+
+<button (click)="auswahl()">Auswählen</button>
+
+<button (click)="zurueck()">Zurück</button>
+
+@if (erorr) {
+  <p [style.color]="'red'">Du musst eine Kategorie auswählen!</p>
+}

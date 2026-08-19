@@ -1,0 +1,48 @@
+<header>
+  <h1>FJLA Gold - Prüfungssimulation: </h1>
+</header>
+
+@if (!start) {
+  <p>10 zufällige Fragen in 120 Sekunden
+    <button (click)="starten()">Start</button>
+  </p>
+
+  <button (click)="back()">Zurück</button>
+  <button (click)="menue()">Hauptmenü</button>
+} @else {
+  @for (frage of fragen(); track $index) {
+    <div class="frage">
+      <p><strong>{{ $index + 1 }}. {{ frage }}</strong></p>
+      <input [ngClass]='{"richtig":richtigeFragen.includes($index), "falsch":falscheFragen.includes($index)}'
+             type="text" [(ngModel)]="antworten[$index]">
+      <br>
+      @if (style) {
+        <a><b>Richtig ist:</b> {{ richtig()[$index] }}</a>
+        <br>
+        <button (click)="falscheAnt($index)">❌</button>
+        <button (click)="richtigeAnt($index)">✔️</button>
+      }
+    </div>
+  }
+  <br>
+  <br>
+
+  <button (click)="fertig()">Abgeben</button>
+
+  <br>
+
+  <a>Ergebnis: {{ punkte }}/10 -> ({{ 10 - punkte }} Fehler) </a>
+  <br>
+  @if (punkte < 7 && punkte != 0) {
+    <a>(Durchgefallen😭)</a>
+  } @else if (punkte >= 7) {
+    <a>(Bestanden👍)</a>
+  }
+
+  <br>
+  <br>
+
+  <button (click)="reset()">Neu Beginnen</button>
+  <button (click)="back()">Zurück</button>
+  <button (click)="menue()">Hauptmenü</button>
+}
